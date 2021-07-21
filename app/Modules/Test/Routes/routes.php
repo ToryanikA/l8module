@@ -11,10 +11,10 @@ Route::group(
     ],
     function () {
         Route::get('/test', [TestController::class, 'index'])
-            ->middleware(CanAccess::class . ':groups,' . Permissions::VIEW);
+            ->middleware(CanAccess::class . ':test,' . Permissions::VIEW);
         Route::get('/test/create', [TestController::class, 'create'])
-            ->middleware(CanAccess::class . ':groups,' . Permissions::CREATE);
-        Route::get('/test/{id}', [TestController::class, 'edit'])
-            ->middleware(CanAccess::class . ':groups,' . Permissions::EDIT);
+            ->middleware(CanAccess::class . ':test,' . Permissions::CREATE);
+        Route::get('/test/edit', [TestController::class, 'edit'])
+            ->middleware(CanAccess::class . ':test,' . Permissions::EDIT);
     }
 );
