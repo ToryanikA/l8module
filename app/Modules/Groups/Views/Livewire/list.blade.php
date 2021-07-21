@@ -41,7 +41,7 @@
                                         <div class="flex flex-row">
                                             @foreach($group->permissions->where('module', $module) as $permission)
                                                 @if($permission->value)
-                                                    <div class="p-1">{{$permission->permission}}</div>
+                                                    <div class="text-xs px-2 py-1 mr-3 text-white rounded-md border-green-800 bg-green-600">{{$permission->permission}}</div>
                                                 @endif
                                             @endforeach
                                         </div>
