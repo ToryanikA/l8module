@@ -4,6 +4,7 @@ namespace App\Modules\Users\Livewire;
 
 use App\Modules\Groups\Models\Group;
 use App\Modules\Groups\Models\User;
+use App\Modules\Groups\Models\UserGroup;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Component;
@@ -67,12 +68,17 @@ class UsersCreate extends Component
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Password::defaults()],
+            'group' => ['required', 'exists:groups,id']
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
+        ]);
+
+        $user->userGroup()->create([
+            'group_id' => $this->group
         ]);
 
         return redirect()->route('users.list');

@@ -23,29 +23,11 @@ class GroupsEdit extends Component
     public $permissions = [];
 
     /**
-     * @var array
-     */
-    protected $messages = [];
-
-    /**
      * @var string[]
      */
     protected $rules = [
         'name' => 'required|min:3',
     ];
-
-    /**
-     * GroupsEdit constructor.
-     * @param null $id
-     */
-    public function __construct($id = null)
-    {
-        parent::__construct($id);
-        $this->messages = [
-            'name.required' => __('The name cannot be empty.'),
-            'name.min' => __('The name must be at least :min.'),
-        ];
-    }
 
     /**
      * @param Group $group

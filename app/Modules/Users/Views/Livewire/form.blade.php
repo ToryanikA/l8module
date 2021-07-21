@@ -26,6 +26,7 @@
                 <option value="{{$id}}">{{$name}}</option>
             @endforeach
         </select>
+        @error('group') <span class="text-red-600">{{ $message }}</span> @enderror
     </div>
     <div class="col-span-6 sm:col-span-3 mt-6 text-right">
         <button type="button" wire:click="save" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

@@ -26,24 +26,6 @@ class GroupsCreate extends Component
     ];
 
     /**
-     * @var array
-     */
-    protected $messages = [];
-
-    /**
-     * GroupsCreate constructor.
-     * @param null $id
-     */
-    public function __construct($id = null)
-    {
-        parent::__construct($id);
-        $this->messages = [
-            'name.required' => __('The name cannot be empty.'),
-            'name.min' => __('The name must be at least :min.'),
-        ];
-    }
-
-    /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function render()
